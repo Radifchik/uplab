@@ -1,5 +1,5 @@
 # uplab
-
+Майоров Димитрий
 ____
 # Задание 1
 This code does not execute properly. Try to figure out why.(Multiply)
