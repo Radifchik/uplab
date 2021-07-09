@@ -97,7 +97,7 @@ var sum = a + b,
 ```
 ____
 # Задание 7
-Complete the findNextSquare method that finds the next integral perfect square after the one passed as a parameter. Recall that an integral perfect square is an integer n such that sqrt(n) is also an integer.
+Complete the findNextSquare method that finds the next integral perfect square after the one passed as a parameter. Recall that an integral perfect square is an integer n such that sqrt(n) is also an integer.(Find the next perfect square!)
 
 If the parameter is itself not a perfect square then -1 should be returned. You may assume the parameter is non-negative.(Find the next perfect square)
 ```html
@@ -116,8 +116,10 @@ function findNextSquare(sq) {
 ```
 ____
 # Задание 8
-Implement the function unique_in_order which takes as argument a sequence and returns a list of items without any elements with the same value next to each other and preserving the original order of elements.
+Implement the function unique_in_order which takes as argument a sequence and returns a list of items without any elements with the same value next to each other and preserving the original order of elements.(Unique In Order)
 ```html
+var uniqueInOrder=function(iterable){
+  //your code here - remember iterable can be a string or an array
 var X = [];
   for(var i = 0 ; i<iterable.length ; i++){
     if(iterable[i] !=iterable[i+1]){
@@ -134,9 +136,9 @@ Each smiley face must contain a valid pair of eyes. Eyes can be marked as : or ;
 A smiley face can have a nose but it does not have to. Valid characters for a nose are - or ~
 Every smiling face must have a smiling mouth that should be marked with either ) or D
 No additional characters are allowed except for those mentioned.
-
 Valid smiley face examples: :) :D ;-D :~)
 Invalid smiley faces: ;( :> :} :]
+(Count the smiley faces!)
 ```html
 //return the total number of smiling faces in the array
 function countSmileys(arr) {
@@ -145,16 +147,17 @@ return arr.filter( face => /[:;]{1}[-~]?[)D]{1}/.test(face) ).length;
 ```
 ____
 # Задание 10
-You are given an odd-length array of integers, in which all of them are the same, except for one single number.
-
-Complete the method which accepts such an array, and returns that single different number.
+Move the first letter of each word to the end of it, then add "ay" to the end of the word. Leave punctuation marks untouched.(Simple Pig Latin)
 ```html
-function stray(numbers) {
-    var a = numbers.sort();
-  
-  if(a[0] != a[1]) {
-    return a[0]
-  } 
-  return a[a.length-1]
+function pigIt(str){
+  //Code here
+  const arr = str.split(' ')
+  return arr
+  .map((word) => {
+   return word.match(/[A-z]/i)
+   ? `${word.substr(1)}${word.substr(0, 1)}ay`
+   : word
+   })
+   .join(' ')
 }
 ```
