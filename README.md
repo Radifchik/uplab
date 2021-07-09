@@ -21,7 +21,6 @@ function rowSumOddNumbers(n) {
 ____
 # Задание 3
 Given an array of integers, find the one that appears an odd number of times.
-
 There will always be only one integer that appears an odd number of times.(Find the odd int)
 ```html
 function findOdd(A) {
@@ -67,7 +66,7 @@ function XO(str) {
 ```
 ____
 # Задание 5
-Write a function that will return the count of distinct case-insensitive alphabetic characters and numeric digits that occur more than once in the input string. The input string can be assumed to contain only alphabets (both uppercase and lowercase) and numeric digits.
+Write a function that will return the count of distinct case-insensitive alphabetic characters and numeric digits that occur more than once in the input string. The input string can be assumed to contain only alphabets (both uppercase and lowercase) and numeric digits.(Counting Duplicates)
 ```html
 function duplicateCount(text){
   //...
@@ -83,51 +82,65 @@ function duplicateCount(text){
 ```
 ____
 # Задание 6
-Your task is to make a function that can take any non-negative integer as an argument and return it with its digits in descending order. Essentially, rearrange the digits to create the highest possible number.
+Implement a function that adds two numbers together and returns their sum in binary. The conversion can be done before, or after the addition.
+The binary number returned should be a string. (Binary Addition)
 ```html
-function descendingOrder(n){
-  return parseInt(String(n).split('').sort().reverse().join(''))
+function addBinary(a,b) {
+var sum = a + b,
+  		binary = '';
+  while ( sum > 0 ) {
+    binary = ( sum % 2 ) + binary;
+    sum = Math.floor( sum / 2 );
+  }
+  return binary;
 }
 ```
 ____
 # Задание 7
-Given the triangle of consecutive odd numbers:
+Complete the findNextSquare method that finds the next integral perfect square after the one passed as a parameter. Recall that an integral perfect square is an integer n such that sqrt(n) is also an integer.
+
+If the parameter is itself not a perfect square then -1 should be returned. You may assume the parameter is non-negative.(Find the next perfect square)
 ```html
-             1
-          3     5
-       7     9    11
-   13    15    17    19
-21    23    25    27    29
-...
-```
-Calculate the sum of the numbers in the nth row of this triangle (starting at index 1)
-```html
-function rowSumOddNumbers(n) {
-	return Math.pow(n, 3);
+function findNextSquare(sq) {
+  // Return the next square if sq is a perfect square, -1 otherwise
+ var x;
+    var nextx;
+    if(Math.sqrt(sq)%1 ===0){
+         x=Math.sqrt(sq)
+         nextx=x+1
+    }else{
+        return -1;
+    }
+    return nextx*nextx;
 }
 ```
 ____
 # Задание 8
-In this kata you will create a function that takes a list of non-negative integers and strings and returns a new list with the strings filtered out.
+Implement the function unique_in_order which takes as argument a sequence and returns a list of items without any elements with the same value next to each other and preserving the original order of elements.
 ```html
-function filter_list(l) {
-  return l.filter(Number.isInteger);
-}
+var X = [];
+  for(var i = 0 ; i<iterable.length ; i++){
+    if(iterable[i] !=iterable[i+1]){
+      X.push(iterable[i])
+    }
+  }
+  return X
 ```
 ____
 # Задание 9
-Given two integers a and b, which can be positive or negative, find the sum of all the integers between and including them and return it. If the two numbers are equal return a or b.
+Given an array (arr) as an argument complete the function countSmileys that should return the total number of smiling faces.
+Rules for a smiling face:
+Each smiley face must contain a valid pair of eyes. Eyes can be marked as : or ;
+A smiley face can have a nose but it does not have to. Valid characters for a nose are - or ~
+Every smiling face must have a smiling mouth that should be marked with either ) or D
+No additional characters are allowed except for those mentioned.
+
+Valid smiley face examples: :) :D ;-D :~)
+Invalid smiley faces: ;( :> :} :]
 ```html
-function getSum( a,b )
-{
-  var min = Math.min(a, b),
-  max = Math.max(a, b),
-  result = 0;
-  while (min <= max) {
-    result += min;
-    min++;
-  }
-  return result;
+//return the total number of smiling faces in the array
+function countSmileys(arr) {
+return arr.filter( face => /[:;]{1}[-~]?[)D]{1}/.test(face) ).length;
 }
 ```
 ____
